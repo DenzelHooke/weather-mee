@@ -34,7 +34,10 @@ function App() {
       setContentState('loading');
       const geoData = await GetGeoData(address);
       setGeoData(geoData.data.results[0]);
-      setAirQuality(geoData.data.results[0]);
+
+      const airQual = await GetAirQuality(geoData.data.results[0])
+      setAirQuality(airQual);
+      
       setAddress(geoData.data.results[0].formatted)
       const weatherRes = await GetWeatherData(geoData.data.results[0]);
       setWeatherData(weatherRes);

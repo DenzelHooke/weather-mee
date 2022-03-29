@@ -227,8 +227,29 @@ body {
   border-radius: 30%;
 }
 
+/* Air Quality */
 
+.air-good {
+  color: rgb(58, 233, 52);
+}
 
+.air-fair {
+  color: rgb(99, 187, 41);
+}
+
+.air-moderate {
+  color: rgb(241, 238, 33);
+}
+
+.air-poor {
+  color: rgb(202, 97, 27);
+}
+
+.air-verypoor {
+  color: rgb(221, 26, 26);
+}
+
+/* Text Styles */
 
 .flat-text {
   color:rgb(68, 68, 68);

@@ -21,16 +21,39 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
     'Friday',
     'Saturday'
   ]
-  console.log('air', airQuality)
+
+  const air = [
+    {
+      class: 'air-good',
+      value: 'Good'
+    },
+    {
+      class: 'air-fair',
+      value: 'Fair'
+    },
+    {
+      class: 'air-moderate',
+      value: 'Moderate'
+    },
+    {
+      class: 'air-poor',
+      value: 'Poor'
+    },
+    {
+      class: 'air-verypoor',
+      value: 'Very Poor'
+    }
+  ]
+
   const weather = weatherData.data.current.weather[0];
   const id = weatherData.data.current.weather[0].icon;
   const date = moment.unix(current.dt).tz(geoData.annotations.timezone.name);
-  console.log(date)
+  // console.log(date)
 
 
 
-  console.log(weatherData)
-  console.log(geoData)
+  // console.log(weatherData)
+  // console.log(geoData)
   return (
     <div className="weather-container">
       <div className="immediate content">
@@ -47,11 +70,19 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
       <div className="weekly">
         {
           weatherData.data.daily.map((item, index) => {
+            console.log(item)
             if (index > 0) {
               return (
                 <div className="weekly-item" key={index}>
                     <span className="item-day">
                       {moment(moment.unix(item.dt)).local().format('ddd')}
+                    </span>
+                    <span className="item-icon">
+                      <img
+                        src={`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
+                        className="forecast-icon"
+                        alt="Weather forecast"
+                      />
                     </span>
                     <br />
                     <div className="min-max">
@@ -66,7 +97,7 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
           })
         }
       </div>
-      </div>
+    </div>
 
       <div className="weather-state data">
         <div class="main-weather-wrapper">
@@ -101,6 +132,11 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
             <div className="secondary-data__item__type space-text flat-text">Wind (Knots)</div>
             <div className="secondary-data__item__middle"></div>
             <div className="secondary-data__item__value noticable-text">{current.wind_speed}</div>
+          </div>
+          <div className="secondary-data__item">
+            <div className="secondary-data__item__type space-text flat-text">Air Quality</div>
+            <div className="secondary-data__item__middle"></div>
+            <div className={`secondary-data__item__value noticable-text ${air[airQuality.list[0].main.aqi].class}`}>{air[airQuality.list[0].main.aqi].value}</div>
           </div>
         </div>
       </div>
