@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import moment from 'moment-timezone';
 // moment = require('moment-timezone');
-const Weather = ({ weatherData, geoData }) => {
+const Weather = ({ weatherData, geoData, airQuality }) => {
+  useEffect(() => {
+    document.querySelector('.search-wrapper').classList.add('weather-state');
+  }, [])
   const [current, setCurrent] = useState({});
 
   useEffect(() => {
@@ -18,6 +21,7 @@ const Weather = ({ weatherData, geoData }) => {
     'Friday',
     'Saturday'
   ]
+  console.log('air', airQuality)
   const weather = weatherData.data.current.weather[0];
   const id = weatherData.data.current.weather[0].icon;
   const date = moment.unix(current.dt).tz(geoData.annotations.timezone.name);

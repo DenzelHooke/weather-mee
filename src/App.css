@@ -29,6 +29,12 @@ body {
 
 .weekly-item {
   padding: 10px;
+  border-right: .5px solid rgba(255, 255, 255, 0.281);
+}
+
+.weekly-item:nth-child(7) {
+  padding: 10px;
+  border-right: 0;
 }
 
 .item-day {
@@ -223,7 +229,6 @@ body {
 
 
 
-s
 
 .flat-text {
   color:rgb(68, 68, 68);
@@ -253,6 +258,11 @@ s
 }
 
 @media (max-width:948px) {
+  .weekly-item {
+    padding: 10px;
+    border-right: 0;
+  }
+
   .noticable-text {
     font-size: 20px;
     font-weight: 500;
