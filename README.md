@@ -1,5 +1,5 @@
 # Weather-me
-A simple weather app uisng ReactJS and the OpenWeatherAPI.
+A simple weather app using ReactJS and the OpenWeatherAPI.
 
 https://weather-mee.netlify.app/
 # How to run
