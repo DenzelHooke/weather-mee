@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   const [contentState, setContentState] = useState('blank');
-  const [address, setAddress] = useState('winnipeg');
+  const [address, setAddress] = useState('');
   const [weatherData, setWeatherData] = useState(null);
   const [geoData, setGeoData] = useState(null);
 
