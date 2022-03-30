@@ -5,7 +5,7 @@ async function GetAirQuality (location) {
   let res = await axios({
     method: 'get',
     
-    url: 'http://api.openweathermap.org/data/2.5/air_pollution?',
+    url: 'https://api.openweathermap.org/data/2.5/air_pollution?',
     params: {
       lat: location.geometry.lat,
       lon: location.geometry.lng,
