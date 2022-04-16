@@ -112,8 +112,9 @@ body {
 
 .search-container {
   display: flex;
-  background-color: rgb(240, 240, 240);
-  width: fit-content;}
+  background-color: none;
+  width: fit-content;
+}
 
 .search-container input{
   border-radius: 2px;
