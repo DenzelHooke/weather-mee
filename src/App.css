@@ -130,6 +130,10 @@ body {
   background-color: rgb(245, 245, 245);
 }
 
+.search-container input:focus {
+  outline: none !important;
+}
+
 .search-container button {
   
   border-radius: 0;
