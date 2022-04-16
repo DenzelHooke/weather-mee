@@ -129,7 +129,7 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
             <div className="secondary-data__item__value noticable-text">{current.humidity}</div>
           </div>
           <div className="secondary-data__item">
-            <div className="secondary-data__item__type space-text flat-text">Wind (Knots)</div>
+            <div className="secondary-data__item__type space-text flat-text">Wind (Meters/s)</div>
             <div className="secondary-data__item__middle"></div>
             <div className="secondary-data__item__value noticable-text">{current.wind_speed}</div>
           </div>
