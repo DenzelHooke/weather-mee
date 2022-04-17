@@ -5,8 +5,10 @@ import moment from 'moment-timezone';
 // moment = require('moment-timezone');
 const Weather = ({ weatherData, geoData, airQuality }) => {
   useEffect(() => {
-    document.querySelector('.search-wrapper').classList.add('weather-state');
+    // document.querySelector('.search-wrapper').classList.add('weather-state');
+    //TODO Load body bg as image from img api
   }, [])
+
   const [current, setCurrent] = useState({});
 
   useEffect(() => {

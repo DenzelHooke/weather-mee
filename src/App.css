@@ -16,7 +16,11 @@
 body {
   min-height: 100vh;
   position: relative;
-  background-color:rgb(94, 162, 240);
+  /* background-color:rgb(94, 162, 240); */
+  background: url('./imgs/andrzej-kryszpiniuk-D1IS5s5O9xo-unsplash.jpg');
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: fill;
 }
 
 
@@ -33,6 +37,7 @@ body {
 .weekly-item {
   padding: 10px;
   border-right: .5px solid var(--weekly-item-border);
+  /* background-color: rgba(0, 0, 0, 0.072); */
 }
 
 .weekly-item:nth-child(7) {

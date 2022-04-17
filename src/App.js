@@ -6,6 +6,8 @@ import GetGeoData from './api/GetGeoData'
 import GetWeatherData from './api/GetWeatherData'
 import GetAirQuality from './api/GetAirQuality'
 import Weather from './components/Weather'
+import pickRandomImageUrl from './helpers/images.js';
+import GetImageFromQuery from './api/GetImage';
 import './App.css';
 
 //? Very first React project I made. Could refactor using Redux.
@@ -16,6 +18,7 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [airQuality, setAirQuality] = useState(null);
   const [geoData, setGeoData] = useState(null);
+  const [locationImage, setLocationImage] = useState(null);
 
   const Main = {
     blank: () => '',
@@ -35,10 +38,16 @@ function App() {
       const geoData = await GetGeoData(address);
       setGeoData(geoData.data.results[0]);
 
-      const airQual = await GetAirQuality(geoData.data.results[0])
+      // const photos = await GetImageFromQuery(geoData.data.results[0].formatted);
+
+      // const photo = pickRandomImageUrl(photos);
+      // setLocationImage(photo);
+      // console.log(photo);
+
+      const airQual = await GetAirQuality(geoData.data.results[0]);
       setAirQuality(airQual);
       
-      setAddress(geoData.data.results[0].formatted)
+      setAddress(geoData.data.results[0].formatted);
       const weatherRes = await GetWeatherData(geoData.data.results[0]);
       setWeatherData(weatherRes);
       setContentState('weather');
@@ -47,6 +56,7 @@ function App() {
       setContentState('blank');
       setWeatherData(null);
       setGeoData(null);
+      setAddress('');
     }
   }
 
