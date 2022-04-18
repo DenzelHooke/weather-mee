@@ -1,4 +1,4 @@
-const pickRandomImageUrl = (photos) => {
+const pickRandomImageUrl = (photos, size) => {
 
   const max = photos.length-1;
   const min = 0;
@@ -9,7 +9,7 @@ const pickRandomImageUrl = (photos) => {
 
   rand = rand + min;
 
-  return photos[rand].src.landscape;
+  return photos[rand].src[size];
 }
 
 export default pickRandomImageUrl;

@@ -3,11 +3,20 @@ import { useState, useEffect } from 'react';
 import React from 'react';
 import moment from 'moment-timezone';
 // moment = require('moment-timezone');
-const Weather = ({ weatherData, geoData, airQuality }) => {
+const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
   useEffect(() => {
-    // document.querySelector('.search-wrapper').classList.add('weather-state');
-    //TODO Load body bg as image from img api
-  }, [])
+    if(locationImage) {
+      const immediate = document.querySelector('.immediate');
+
+      // immediate.style.backgroundColor = 'blue';
+      immediate.style.backgroundImage = `url('${locationImage}')`;
+      immediate.style.backgroundPosition = 'center';
+      immediate.style.backgroundSize = 'cover';
+      immediate.style.backgroundRepeat = 'no-repeat';
+      console.log(immediate.style.backgroundImage); 
+      // console.log(locationImage)
+    }
+  }, [locationImage])
 
   const [current, setCurrent] = useState({});
 
@@ -52,7 +61,8 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
   const date = moment.unix(current.dt).tz(geoData.annotations.timezone.name);
   // console.log(date)
 
-
+  const air_class = air[airQuality.list[0].main.aqi] ? air[airQuality.list[0].main.aqi].class : 'N/A';
+  const air_value = air[airQuality.list[0].main.aqi] ? air[airQuality.list[0].main.aqi].value : 'N/A';
 
   // console.log(weatherData)
   // console.log(geoData)
@@ -109,7 +119,7 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
               className="weather-picture"
               alt="Current Weather Image"
             />
-            <div className="weather-type">{weather.main}</div>
+            <div className="weather-type flat-text">{weather.main}</div>
           </div>
           <div className="main-weather-temp">
               <div className="current-temp flex-inline">
@@ -138,7 +148,7 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
           <div className="secondary-data__item">
             <div className="secondary-data__item__type space-text flat-text">Air Quality</div>
             <div className="secondary-data__item__middle"></div>
-            <div className={`secondary-data__item__value noticable-text ${air[airQuality.list[0].main.aqi].class}`}>{air[airQuality.list[0].main.aqi].value}</div>
+            <div className={`secondary-data__item__value noticable-text ${air_class}`}>{air_value}</div>
           </div>
         </div>
       </div>

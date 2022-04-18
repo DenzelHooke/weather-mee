@@ -22,21 +22,11 @@ function App() {
   const [geoData, setGeoData] = useState(null);
   const [locationImage, setLocationImage] = useState(null);
 
-  useEffect(() => {
-
-    document.body.style.backgroundImage = `url('${locationImage}')`;
-    // document.body.style.backgroundPosition = 'center center';
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundRepeat = 'no-repeat';
-    console.log(document.body.style.backgroundImage); 
-    // console.log(locationImage)
-  }, [locationImage])
-
   const Main = {
     blank: () => '',
     name: () => (<div>name</div>),
     loading: () => (<Loading />),
-    weather: () => (<Weather weatherData={weatherData} geoData={geoData} airQuality={airQuality}/>),
+    weather: () => (<Weather weatherData={weatherData} geoData={geoData} airQuality={airQuality} locationImage={locationImage}/>),
   }
   
   const onChange = (input_val) => {
@@ -55,9 +45,9 @@ function App() {
       setGeoData(geoData.data.results[0]);
 
       const formatted  = geoData.data.results[0].formatted ? geoData.data.results[0].formatted : 'city';
-      const photos = await GetImageFromQuery(formatted, per_page);
+      const photos = await GetImageFromQuery(formatted, per_page, 'landscape', 'large');
 
-      const photo = pickRandomImageUrl(photos);
+      const photo = pickRandomImageUrl(photos, 'original');
       setLocationImage(photo);
       console.log(photos);
 
