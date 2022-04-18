@@ -59,11 +59,11 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
   return (
     <div className="weather-container">
       <div className="immediate content">
-        <div className="location-name">
+        <div className="location-name text-shadow">
           <h2>{geoData.formatted}</h2>
         </div>
         <div className="location-details">
-          <div>
+          <div className="text-shadow">
             <p>
               {date.format('h:mm A')} {weekdays[date.isoWeekday()]}
             </p>
@@ -72,7 +72,7 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
       <div className="weekly">
         {
           weatherData.data.daily.map((item, index) => {
-            console.log(item)
+            // console.log(item)
             if (index > 0) {
               return (
                 <div className="weekly-item" key={index}>
@@ -126,7 +126,7 @@ const Weather = ({ weatherData, geoData, airQuality }) => {
         </div>
         <div className="secondary-data">
           <div className="secondary-data__item">
-            <div className="secondary-data__item__type space-text flat-text">Humidity(%)</div>
+            <div className="secondary-data__item__type space-text flat-text">Humidity (%)</div>
             <div className="secondary-data__item__middle"></div>
             <div className="secondary-data__item__value noticable-text">{current.humidity}</div>
           </div>

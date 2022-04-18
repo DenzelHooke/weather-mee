@@ -10,6 +10,8 @@ import pickRandomImageUrl from './helpers/images.js';
 import GetImageFromQuery from './api/GetImage';
 import './App.css';
 
+
+
 //? Very first React project I made. Could refactor using Redux.
 
 function App() {
@@ -19,6 +21,16 @@ function App() {
   const [airQuality, setAirQuality] = useState(null);
   const [geoData, setGeoData] = useState(null);
   const [locationImage, setLocationImage] = useState(null);
+
+  useEffect(() => {
+
+    document.body.style.backgroundImage = `url('${locationImage}')`;
+    // document.body.style.backgroundPosition = 'center center';
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    console.log(document.body.style.backgroundImage); 
+    // console.log(locationImage)
+  }, [locationImage])
 
   const Main = {
     blank: () => '',
@@ -33,16 +45,21 @@ function App() {
   }
 
   const onSearch = async () => {
+    const per_page = 10;
+
     try {
+      if (!address) return;
+
       setContentState('loading');
       const geoData = await GetGeoData(address);
       setGeoData(geoData.data.results[0]);
 
-      // const photos = await GetImageFromQuery(geoData.data.results[0].formatted);
+      const formatted  = geoData.data.results[0].formatted ? geoData.data.results[0].formatted : 'city';
+      const photos = await GetImageFromQuery(formatted, per_page);
 
-      // const photo = pickRandomImageUrl(photos);
-      // setLocationImage(photo);
-      // console.log(photo);
+      const photo = pickRandomImageUrl(photos);
+      setLocationImage(photo);
+      console.log(photos);
 
       const airQual = await GetAirQuality(geoData.data.results[0]);
       setAirQuality(airQual);

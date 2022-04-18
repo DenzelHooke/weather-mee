@@ -12,24 +12,24 @@
 
 :root {
   --weekly-item-border: rgba(255, 255, 255, 0.479);
+  --location-color: rgb(241, 241, 241);
+  --location-time-color: rgb(241, 241, 241);
 }
+
 body {
   min-height: 100vh;
   position: relative;
   /* background-color:rgb(94, 162, 240); */
-  background: url('./imgs/andrzej-kryszpiniuk-D1IS5s5O9xo-unsplash.jpg');
-  /* background-position: center; */
+  /* background: url('./imgs/andrzej-k                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ryszpiniuk-D1IS5s5O9xo-unsplash.jpg'); */
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: fill;
 }
-
-
 
 .weekly {
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.329);
+  background: rgba(22, 22, 22, 0.986);
   border-radius: 5px;
   margin-bottom: 100px;
 }
@@ -37,6 +37,8 @@ body {
 .weekly-item {
   padding: 10px;
   border-right: .5px solid var(--weekly-item-border);
+  text-shadow: 2px 1px #1313133b;
+
   /* background-color: rgba(0, 0, 0, 0.072); */
 }
 
@@ -191,9 +193,11 @@ body {
 
 .immediate h2:nth-child(1) {
   font-size: 40px;
+  color: var(--location-color);
 }
 
 .immediate p:nth-child(1) {
+  color: var(--location-time-color);
   font-size: 30px;
 }
 
@@ -311,11 +315,19 @@ body {
   align-items: center;
 }
 
-@media (max-width:948px) {
-.weekly {
-  margin-left: 5px;
-  margin-right: 5px;
+.text-shadow {
+  text-shadow: 2px 1px 2px #00000086;
 }
+
+@media (max-width:948px) {
+  body {
+    background-size: fill;
+  }
+  
+  .weekly {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 
 
   .weekly-item {
@@ -347,6 +359,8 @@ body {
 }
 
 @media (max-width:700px) {
+
+
   .immediate {
     padding-top: 80px;
   }

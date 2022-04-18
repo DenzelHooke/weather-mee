@@ -9,8 +9,7 @@ const pickRandomImageUrl = (photos) => {
 
   rand = rand + min;
 
-  console.log(photos[rand].url);
-  return photos[rand].url;
+  return photos[rand].src.landscape;
 }
 
 export default pickRandomImageUrl;
