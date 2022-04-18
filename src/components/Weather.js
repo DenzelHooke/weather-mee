@@ -10,7 +10,7 @@ const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
 
       // immediate.style.backgroundColor = 'blue';
       immediate.style.backgroundImage = `url('${locationImage}')`;
-      immediate.style.backgroundPosition = 'center';
+      immediate.style.backgroundPosition = 'bottom';
       immediate.style.backgroundSize = 'cover';
       immediate.style.backgroundRepeat = 'no-repeat';
       console.log(immediate.style.backgroundImage); 

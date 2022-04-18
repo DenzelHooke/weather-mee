@@ -18,6 +18,9 @@
   --weather-state-bg: rgb(255, 255, 255);
   --noticable-text: rgb(34, 34, 34);
   --flat-text: rgb(51, 51, 51);
+  --weekly-color: rgb(246, 246, 246);
+  --min-color: rgba(255, 255, 255, 0.552);
+  --max-color: white;
 }
 
 .weekly {
@@ -32,7 +35,7 @@
 .weekly-item {
   padding: 10px;
   border-right: .5px solid var(--weekly-item-border);
-  text-shadow: 2px 1px #1313133b;
+  text-shadow: 2px 3px 2px #131313dd;
 
   /* background-color: rgba(0, 0, 0, 0.072); */
 }
@@ -47,7 +50,7 @@
 }
 
 .weekly-item > *{
-  color: rgba(255, 255, 255, 0.788);
+  color: var(--weekly-color);
   padding: 1px;
 }
 
@@ -57,11 +60,11 @@
 }
 
 .min-max > span{
-  color: white;
+  color: var(--max-color);
 }
 
 .min-max .item-min{
-  color: rgba(255, 255, 255, 0.74);
+  color: var(--min-color);
   font-size: 16px;
 }
 
@@ -306,11 +309,13 @@
   margin: 0 10px;
 }
 .flex-inline {
+  text-align: center;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.flex-inline > {
+.flex-inline span{
   display: flex;
   align-items: center;
 }
