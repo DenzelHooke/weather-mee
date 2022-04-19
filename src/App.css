@@ -12,36 +12,48 @@
 
 :root {
   --weekly-item-border: rgba(255, 255, 255, 0.479);
-  --location-color: rgb(241, 241, 241);
-  --location-time-color: rgb(241, 241, 241);
+  --location-info-bg: rgb(255, 255, 255);
+  --location-color: rgb(255, 255, 255);
+  --location-time-color: rgb(255, 255, 255);
   --immediate-bg: rgb(82, 82, 82);
-  --weather-state-bg: rgb(255, 255, 255);
-  --noticable-text: rgb(34, 34, 34);
-  --flat-text: rgb(51, 51, 51);
-  --weekly-color: rgb(246, 246, 246);
-  --min-color: rgba(255, 255, 255, 0.552);
-  --max-color: white;
+  --weather-state-bg: rgb(32, 32, 32);
+  --noticable-text: rgb(219, 219, 219);
+  --flat-text: rgb(250, 250, 250);
+  --weekly-color: rgb(255, 255, 255);
+  --min-color: rgb(255, 255, 255);
+  --max-color: rgb(255, 255, 255);
+  --weekly-bg: rgba(33, 33, 33, 0.986);
+  --secondary-data__item__middleBg: rgb(30, 178, 246);
+  --search-wrapper: rgba(22, 22, 22, 0.986);
 }
 
 .weekly {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
-  background: rgba(22, 22, 22, 0.986);
+  /* padding: 10px; */
+  /* background: var(--weekly-bg); */
   border-radius: 5px;
   margin-bottom: 100px;
 }
 
-.weekly-item {
+.location-info {
+  /* background-color: var(--location-info-bg); */
   padding: 10px;
-  border-right: .5px solid var(--weekly-item-border);
-  text-shadow: 2px 3px 2px #131313dd;
+  border-radius: 45px;
+}
 
+.weekly-item {
+  margin: 0 10px;
+  padding: 10px;
+  /* border-right: .5px solid var(--weekly-item-border); */
+  /* text-shadow:#000000 2px 1px 5px; */
+  background: var(--weekly-bg);
+  /* box-shadow: #000000 2px 1px 5px; */
+  border-radius: 10px;
   /* background-color: rgba(0, 0, 0, 0.072); */
 }
 
 .weekly-item:nth-child(7) {
-  padding: 10px;
   border-right: 0;
 }
 
@@ -61,6 +73,7 @@
 
 .min-max > span{
   color: var(--max-color);
+  
 }
 
 .min-max .item-min{
@@ -110,9 +123,10 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  background-color: rgb(255, 255, 255);
+  background-color: var(--search-wrapper);
   padding: 10px;
   box-shadow: 0px 3px 10px 2px rgba(0, 0, 0, 0.356);
+  z-index: 999;
 }
 
 .search-container {
@@ -141,7 +155,6 @@
 }
 
 .search-container button {
-  
   border-radius: 0;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -188,7 +201,19 @@
   align-items: center;
   font-weight: light;
   padding-top: 80px;
-  background-color: var(--immediate-bg);
+  position: relative;
+  z-index: 100;
+}
+
+.immediate::after {
+  content: '';
+  background: rgba(0, 0, 0, 0.454);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -200;
 }
 
 .immediate h2:nth-child(1) {
@@ -247,10 +272,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 20px;
 }
 
 .secondary-data__item > *{
-  padding: 20px;
+  padding: 10px 0;
   text-align: center;
 }
 .secondary-data__item .secondary-data__item__middle{
@@ -259,31 +285,31 @@
 
 .secondary-data__item__middle {
   height: 1px;
-  background: rgba(9, 199, 247, 0.979);
+  background: var(--secondary-data__item__middleBg);
   width: 30px;
   margin: 0 auto;
-  border-radius: 30%;
+  /* border-radius: 30%; */
 }
 
 /* Air Quality */
 
-.air-good {
+#air-good {
   color: rgb(58, 233, 52);
 }
 
-.air-fair {
+#air-fair {
   color: rgb(99, 187, 41);
 }
 
-.air-moderate {
+#air-moderate {
   color: rgb(241, 238, 33);
 }
 
-.air-poor {
+#air-poor {
   color: rgb(202, 97, 27);
 }
 
-.air-verypoor {
+#air-verypoor {
   color: rgb(221, 26, 26);
 }
 
@@ -334,11 +360,6 @@
     margin-right: 5px;
   }
 
-
-  .weekly-item {
-    padding: 5px;
-  }
-
   .noticable-text {
     font-size: 20px;
     font-weight: 500;
@@ -373,28 +394,41 @@
     width: 100%;
     background: 0;
     align-items: center;
+    margin-bottom: 60px;
   }
 
   .weekly-item {
-    width: 100px;
+    width: 160px;
+    padding: 35px 0;
     text-align: center;
-    border-right: 0;
-    border-bottom: 1px solid var(--weekly-item-border);
+    border-radius: 100px;
+    /* border-bottom: 2px solid var(--weekly-item-border); */
+    margin: 10px 0;
+  }
+  
+  .weekly-item > span {
+    font-size: px;
   }
 
   .weekly-item:last-child{
     border-bottom: 0;
   }
 
+  .min-max > span{
+    justify-content: center;
+    font-size: 10px;
+  } 
+
   .item-day{ 
-    font-size: 40px;
+    font-size: 35px;
   }
 
-  .min-max {
-    justify-content: center;
-  } 
 
   .secondary-data {
     flex-direction: column;
+  }
+
+  .secondary-data__item {
+    margin: 20px 0;
   }
 }

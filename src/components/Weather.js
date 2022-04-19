@@ -69,14 +69,16 @@ const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
   return (
     <div className="weather-container">
       <div className="immediate content">
-        <div className="location-name text-shadow">
-          <h2>{geoData.formatted}</h2>
-        </div>
-        <div className="location-details">
-          <div className="text-shadow">
-            <p>
-              {date.format('h:mm A')} {weekdays[date.isoWeekday()]}
-            </p>
+        <div class="location-info">
+          <div className="location-name text-shadow">
+            <h2>{geoData.formatted}</h2>
+          </div>
+          <div className="location-details">
+            <div className="text-shadow">
+              <p>
+                {date.format('h:mm A')} {weekdays[date.isoWeekday()]}
+              </p>
+            </div>
           </div>
         </div>
       <div className="weekly">
@@ -119,11 +121,11 @@ const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
               className="weather-picture"
               alt="Current Weather Image"
             />
-            <div className="weather-type flat-text">{weather.main}</div>
+            <div className="weather-type noticable-text">{weather.main}</div>
           </div>
           <div className="main-weather-temp">
               <div className="current-temp flex-inline">
-                <span className="noticable-text">{Math.round(current.temp)} &deg;</span>
+                <span className="noticable-text">{Math.round(current.temp)}&deg;</span>
                 <div className="secondary-data__item__middle temp-middle"></div>
                 <span className="flat-text">Current</span>
               </div>
@@ -141,14 +143,14 @@ const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
             <div className="secondary-data__item__value noticable-text">{current.humidity}</div>
           </div>
           <div className="secondary-data__item">
+            <div className="secondary-data__item__type space-text flat-text">Air Quality</div>
+            <div className="secondary-data__item__middle"></div>
+            <div id={`${air_class}`} className={`secondary-data__item__value noticable-text`}>{air_value.toUpperCase()}</div>
+          </div>
+          <div className="secondary-data__item">
             <div className="secondary-data__item__type space-text flat-text">Wind (Meters/s)</div>
             <div className="secondary-data__item__middle"></div>
             <div className="secondary-data__item__value noticable-text">{current.wind_speed}</div>
-          </div>
-          <div className="secondary-data__item">
-            <div className="secondary-data__item__type space-text flat-text">Air Quality</div>
-            <div className="secondary-data__item__middle"></div>
-            <div className={`secondary-data__item__value noticable-text ${air_class}`}>{air_value}</div>
           </div>
         </div>
       </div>
