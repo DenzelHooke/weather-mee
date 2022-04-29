@@ -10,7 +10,7 @@ async function GetWeatherData (location) {
       lat: location.geometry.lat,
       lon: location.geometry.lng,
       units: 'metric',
-      appid: '8ca3fde957f091863552acf62b87f6a9',
+      appid: process.env.REACT_APP_OPEN_WEATHER_KEY,
     }
   })
   return res

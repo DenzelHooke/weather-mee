@@ -8,6 +8,8 @@ import GetAirQuality from './api/GetAirQuality'
 import Weather from './components/Weather'
 import pickRandomImageUrl from './helpers/images.js';
 import GetImageFromQuery from './api/GetImage';
+import { getGeoLocation } from './helpers/geoLocation';
+
 import './App.css';
 
 
@@ -21,6 +23,7 @@ function App() {
   const [airQuality, setAirQuality] = useState(null);
   const [geoData, setGeoData] = useState(null);
   const [locationImage, setLocationImage] = useState(null);
+  const [gettingLocation, setGettingLocation] = useState(null);
 
   const Main = {
     blank: () => '',
@@ -34,22 +37,31 @@ function App() {
     console.log(input_val);
   }
 
-  const onSearch = async () => {
+  const onSearch = async (getLocation) => {
     const per_page = 10;
+    let geoData;
 
     try {
-      if (!address) return;
+      if (!address && !getLocation) return;
 
-      setContentState('loading');
-      const geoData = await GetGeoData(address);
+      setContentState('loading'); 
+      if(getLocation) {
+        geoData = await getGeoLocation();
+        console.log(geoData);
+      } else {
+        geoData = await GetGeoData(address);
+      }
+
+
+
       setGeoData(geoData.data.results[0]);
+      // console.log(geoData.data.results[0])
 
       const formatted  = geoData.data.results[0].formatted ? geoData.data.results[0].formatted : 'city';
       const photos = await GetImageFromQuery(formatted, per_page, 'landscape', 'large');
 
       const photo = pickRandomImageUrl(photos, 'original');
       setLocationImage(photo);
-      console.log(photos);
 
       const airQual = await GetAirQuality(geoData.data.results[0]);
       setAirQuality(airQual);
@@ -69,7 +81,7 @@ function App() {
 
   return (
     <div className="main-container">
-      { <Search onClick={onSearch} onChange={onChange} address={address}/> }
+      { <Search onClick={onSearch} onChange={onChange} address={address} contentState={contentState}/> }
       { Main[contentState]() }
     </div>
   );

@@ -3,7 +3,7 @@ import axios from "axios";
 async function GetImageFromQuery(formatted_name, per_page, orientation, size) {
     const res = await axios.get(`https://api.pexels.com/v1/search`, {
         headers: {
-            authorization: "563492ad6f917000010000015104cbea62cf42f185edabe089135d48",
+            authorization: process.env.REACT_APP_PEXELS_API,
         },
         params: {
             query: formatted_name,
