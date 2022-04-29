@@ -21,22 +21,18 @@ export const getGeoLocation = async () => {
     const notAllowed = (error) => {
       switch(error.code) {
         case error.PERMISSION_DENIED: 
-          root.innerHTML = "User denied the request for Geolocation";
           reject("User denied the request for Geolocation");
           break;  
                
         case error.POSITION_UNAVAILABLE: 
-          root.innerHTML = "Couldn't get users position";
           reject("Couldn't get users position");
           break;
 
         case error.TIMEOUT: 
-          root.innerHTML = "The request to get user location timed out";
           reject("The request to get user location timed out");
           break;
 
         case error.UNKOWN_ERROR: 
-          root.innerHTML = "An unkown error occured";
           reject("An unkown error occured.");
           break;
       }
