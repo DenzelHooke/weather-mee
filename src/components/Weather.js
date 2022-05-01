@@ -112,7 +112,6 @@ const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
         }
       </div>
     </div>
-
       <div className="weather-state data">
         <div class="main-weather-wrapper">
           <div className="main-weather-state-wrapper">
