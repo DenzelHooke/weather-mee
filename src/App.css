@@ -15,7 +15,7 @@
   --location-info-bg: rgb(255, 255, 255);
   --location-color: rgb(255, 255, 255);
   --location-time-color: rgb(255, 255, 255);
-  --immediate-bg: rgb(76, 159, 228);
+  --body-bg: rgb(76, 159, 228);
   --weather-state-bg: rgb(32, 32, 32);
   --noticable-text: rgb(219, 219, 219);
   --flat-text: rgb(250, 250, 250);
@@ -27,6 +27,10 @@
   --search-wrapper: rgb(22, 22, 22);
   --btn-bg: rgb(69, 69, 69);
   --btn-hover: rgb(80, 80, 80);
+}
+
+body {
+  background-color: var(--body-bg);
 }
 
 .weekly {
@@ -238,7 +242,6 @@
   padding-top: 80px;
   position: relative;
   z-index: 100;
-  background-color: var(--immediate-bg);
 }
 
 .immediate::after {
