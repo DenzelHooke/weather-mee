@@ -93,7 +93,7 @@ const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
                     </span>
                     <span className="item-icon">
                       <img
-                        src={`http://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
+                        src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
                         className="forecast-icon"
                         alt="Weather forecast"
                       />
@@ -116,7 +116,7 @@ const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
         <div class="main-weather-wrapper">
           <div className="main-weather-state-wrapper">
             <img
-              src={`http://openweathermap.org/img/wn/${id}@4x.png`}
+              src={`https://openweathermap.org/img/wn/${id}@4x.png`}
               className="weather-picture"
               alt="Current Weather Image"
             />
