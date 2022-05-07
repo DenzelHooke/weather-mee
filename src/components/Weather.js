@@ -70,12 +70,12 @@ const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
     <div className="weather-container">
       <div className="immediate content">
         <div class="location-info">
-          <div className="location-name text-shadow">
-            <h2>{geoData.formatted}</h2>
+          <div id="location-name-wrapper" className="text-shadow">
+            <h2 id="location-name">{geoData.formatted}</h2>
           </div>
           <div className="location-details">
-            <div className="text-shadow">
-              <p>
+            <div id="location-time-wrapper" className="text-shadow">
+              <p id="location-time">
                 {date.format('h:mm A')} {weekdays[date.isoWeekday()]}
               </p>
             </div>

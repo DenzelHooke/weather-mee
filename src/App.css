@@ -15,7 +15,7 @@
   --location-info-bg: rgb(255, 255, 255);
   --location-color: rgb(255, 255, 255);
   --location-time-color: rgb(255, 255, 255);
-  --immediate-bg: rgb(82, 82, 82);
+  --immediate-bg: rgb(76, 159, 228);
   --weather-state-bg: rgb(32, 32, 32);
   --noticable-text: rgb(219, 219, 219);
   --flat-text: rgb(250, 250, 250);
@@ -238,6 +238,7 @@
   padding-top: 80px;
   position: relative;
   z-index: 100;
+  background-color: var(--immediate-bg);
 }
 
 .immediate::after {
@@ -251,14 +252,19 @@
   z-index: -200;
 }
 
-.immediate h2:nth-child(1) {
+#location-name{
   font-size: 40px;
   color: var(--location-color);
 }
 
-.immediate p:nth-child(1) {
+#location-time-wrapper {
+  text-align: center;
+}
+
+#location-time {
   color: var(--location-time-color);
-  font-size: 30px;
+  font-size: 50px;
+  font-weight: 200;
 }
 
 
