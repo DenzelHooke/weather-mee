@@ -24,9 +24,9 @@
   --max-color: rgb(255, 255, 255);
   --weekly-bg: rgba(33, 33, 33, 0.986);
   --secondary-data__item__middleBg: rgb(30, 178, 246);
-  --search-wrapper: rgb(255, 255, 255);
-  --btn-bg: rgb(69, 69, 69);
-  --btn-hover: rgb(80, 80, 80);
+  --search-wrapper: rgba(33, 33, 33, 0.986);
+  --btn-bg: rgb(255, 255, 255);
+  --btn-hover: rgb(218, 218, 218);
 }
 
 body {
@@ -171,7 +171,7 @@ body {
 }
 
 .search-wrapper svg {
-  fill: rgb(70, 147, 246);
+  fill: var(--search-wrapper);
 }
 
 .search-container button:hover {
@@ -191,10 +191,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
-
-#getLocationBtn > * {
-  color: white;
 }
 
 #getLocationBtn:hover {
