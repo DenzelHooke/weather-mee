@@ -95,7 +95,7 @@ body {
   border: 15px solid var(--search-wrapper);
   width: 150px;
   height: 150px;
-  border-top: 15px solid var(--weather-state-bg);
+  border-top: 15px solid var(--btn-bg);
   border-radius: 50%;
   animation: loading 2s infinite;
 }
