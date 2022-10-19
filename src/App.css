@@ -7,7 +7,7 @@
   font-family: "Lato", sans-serif;
   font-size: 17px;
   font-weight: 500;
-  color: rgb(34, 34, 34);
+  color: white;
 }
 
 :root {
@@ -27,10 +27,20 @@
   --search-wrapper: rgba(33, 33, 33, 0.986);
   --btn-bg: rgb(255, 255, 255);
   --btn-hover: rgb(218, 218, 218);
+  --weather-info-font-size: 20px;
+  --noticable-text-font-size: 24px;
 }
 
 body {
   background-color: var(--body-bg);
+}
+
+.textBlack {
+  color: var(--search-wrapper);
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .weekly {
@@ -46,6 +56,11 @@ body {
   /* background-color: var(--location-info-bg); */
   padding: 10px;
   border-radius: 45px;
+}
+
+.universal-text-size {
+  font-size: var(--weather-info-font-size);
+  color: white;
 }
 
 .weekly-item {
@@ -275,11 +290,12 @@ body {
 .main-weather-temp {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-end;
+  align-items: flex-start;
 }
 
-.main-weather-temp span:nth-child(1) {
-  font-size: 30px;
+.main-weather-temp div:nth-child(1) {
+  margin-bottom: 80px;
 }
 
 .secondary-data {
@@ -287,10 +303,6 @@ body {
   justify-content: space-around;
   width: 50%;
   padding: 5px;
-}
-
-.secondary-data__item__type {
-  font-size: 16px;
 }
 
 .secondary-data__item {
@@ -351,9 +363,8 @@ body {
 }
 
 .noticable-text {
-  font-size: 25px;
-  font-weight: 500;
-  color: var(--noticable-text);
+  font-size: var(--noticable-text-font-size) !important;
+  font-weight: 500 !important;
 }
 
 .temp-middle {

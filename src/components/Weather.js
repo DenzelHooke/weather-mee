@@ -133,45 +133,45 @@ const Weather = ({ weatherData, geoData, airQuality, locationImage }) => {
                 {Math.round(current.temp)}&deg;
               </span>
               <div className="secondary-data__item__middle temp-middle"></div>
-              <span className="flat-text">Current</span>
+              <span className="flat-text universal-text-size">Current</span>
             </div>
             <div className="feelsLike-temp flex-inline">
               <span className="noticable-text">
                 {Math.round(current.feels_like)}&deg;
               </span>
               <div className="secondary-data__item__middle temp-middle"></div>
-              <span className="flat-text">Feels like</span>
+              <span className="flat-text universal-text-size">Feels like</span>
             </div>
           </div>
         </div>
         <div className="secondary-data">
           <div className="secondary-data__item">
-            <div className="secondary-data__item__type space-text flat-text">
+            <div className="secondary-data__item__type space-text flat-text universal-text-size">
               Humidity (%)
             </div>
             <div className="secondary-data__item__middle"></div>
-            <div className="secondary-data__item__value noticable-text">
+            <div className="secondary-data__item__value universal-text-size">
               {current.humidity}
             </div>
           </div>
           <div className="secondary-data__item">
-            <div className="secondary-data__item__type space-text flat-text">
+            <div className="secondary-data__item__type space-text flat-text universal-text-size">
               Air Quality
             </div>
             <div className="secondary-data__item__middle"></div>
             <div
               id={`${air_class}`}
-              className={`secondary-data__item__value noticable-text`}
+              className={`secondary-data__item__value universal-text-size`}
             >
               {air_value.toUpperCase()}
             </div>
           </div>
           <div className="secondary-data__item">
-            <div className="secondary-data__item__type space-text flat-text">
+            <div className="secondary-data__item__type space-text flat-text universal-text-size">
               Wind (Meters/s)
             </div>
             <div className="secondary-data__item__middle"></div>
-            <div className="secondary-data__item__value noticable-text">
+            <div className="secondary-data__item__value universal-text-size   ">
               {current.wind_speed}
             </div>
           </div>
